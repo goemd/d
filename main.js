@@ -1,6 +1,6 @@
 var endpoint = "https://www.jsonstore.io/0875281ff5b646ffee1d2a69378c88ec16d33ad93b0b7459468d70d4b0e65c62";
 
-function geturl(){  //2
+function geturl(){  //2 long url
     var url = document.getElementById("urlinput").value;
     var protocol_ok = url.startsWith("http://") || url.startsWith("https://") || url.startsWith("ftp://");
     if(!protocol_ok){
@@ -46,10 +46,7 @@ function shorturl(){ //1
 }
 
 
-var hashh = window.location.hash.substr(1)
-
-
-
+var hashh = window.location.hash.substr(1);
 
 if (window.location.hash != "") {
     $.getJSON(endpoint + "/" + hashh, function (data) {
@@ -58,7 +55,7 @@ if (window.location.hash != "") {
         if (data != null) {
             //This takes the shortURL from Json,parses data and takes us to the original long url.
            window.location.href = data;
-           
+       
         }
 
     });
