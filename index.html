@@ -1,63 +1,69 @@
-var endpoint = "https://www.jsonstore.io/0875281ff5b646ffee1d2a69378c88ec16d33ad93b0b7459468d70d4b0e65c62";
+<html>
+    <head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-function geturl(){  //2 long url
-    var url = document.getElementById("urlinput").value;
-    var protocol_ok = url.startsWith("http://") || url.startsWith("https://") || url.startsWith("ftp://");
-    if(!protocol_ok){
-        newurl = "http://"+url;
-        return newurl;
-        }else{
-            return url;
+        <title>REPO</title>
 
-        }
-}
+     <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
 
-function getrandom() {  //4
-    var text = "";
-    var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
-
-    for (var i = 0; i < 3; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    return text;
-}
-
-function genhash(){ //3
-    if (window.location.hash == ""){
-        window.location.hash = getrandom();  //4
-        document.getElementById("Field3").value = 'https://secure.ebookmd.com/'+window.location.hash;
-    }
-}
   
-function send_request(url) {  //5
-    this.url = url;
-    $.ajax({
-        'url': endpoint + "/" + window.location.hash.substr(1),
-        'type': 'POST',
-        'data': JSON.stringify(this.url),
-        'dataType': 'json',
-        'contentType': 'application/json; charset=utf-8'
-})
+  <div>
+    <label class="desc" id="title1" for="Field1">Long URL</label>
+    <div>
+      <input id="urlinput" name="Field1" type="url" class="field text fn">
+
+    </div>
+  </div>
+    
+    
+
+  	<div>
+  		<button id="saveForm name=saveForm" onclick="shorturl()">Create</button>
+ 
+    </div>
+
+
+  <div>
+  	      <hr>
+<hr>
+    <label class="desc" id="title3" for="Field3">
+      SHORT URL
+    </label>
+    <div>
+      <input style="background: #7bed9f" id="Field3" name="Field3" type="url" spellcheck="false" value=""> 
+      <br>
+      <div class="tooltip">
+<button onclick="copyShortUrl()">COPY URL
+  <span class="tooltiptext" id="myTooltip">COPY URL</span>
+
+  </button>
+</div>
+	  
+
+
+	   <script type="text/javascript">
+
+	   	function copyShortUrl() {
+  /* Get the text field */
+  var copyText = document.getElementById("Field3");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied: " + copyText.value;
 }
 
-function shorturl(){ //1
-    var longurl = geturl();
-    genhash();
-    send_request(longurl);
-}
-
-
-var hashh = window.location.hash.substr(1);
-
-if (window.location.hash != "") {
-    $.getJSON(endpoint + "/" + hashh, function (data) {
-        data = data["result"];
-
-        if (data != null) {
-            //This takes the shortURL from Json,parses data and takes us to the original long url.
-           window.location.href = data;
-       
-        }
-
-    });
-}
-
+</script>
+   		
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
