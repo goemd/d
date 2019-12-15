@@ -62,6 +62,7 @@ if (window.location.hash != "") {
 }else{
    
     document.getElementById("start").style.display = "block";
+     document.getElementById("mainDiv").style.display = "none";
 
 }
 
