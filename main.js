@@ -59,5 +59,9 @@ if (window.location.hash != "") {
         }
 
     });
+}else{
+   
+    document.getElementById("start").style.display = "block";
+
 }
 
