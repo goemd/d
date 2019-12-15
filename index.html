@@ -1,70 +1,58 @@
+<!DOCTYPE html>
 <html>
-    <head>
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<title>eBookMD.com - Get Your Ebook</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div align="center">
+		<h1 style="font-size: 2vh">EbookMD.com - Redirecting To Secure Download...</h1>
+	</div>
+	<section class="start" id="start">
+		<div>
+			<label class="desc" for="Field1" id="title1">Long URL</label>
+			<div>
+				<input class="field text fn" id="urlinput" name="Field1" type="url">
+			</div>
+		</div>
+		<div>
+			<button id="saveForm name=saveForm" onclick="shorturl()">Create</button>
+		</div>
+		<div>
+			<hr>
+			<hr>
+			<label class="desc" for="Field3" id="title3">SHORT URL</label>
+			<div>
+				<input id="Field3" name="Field3" spellcheck="false" style="background: #7bed9f" type="url" value=""><br>
+				<div class="tooltip">
+					<button onclick="copyShortUrl()">COPY URL <span class="tooltiptext" id="myTooltip">COPY URL</span></button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript">
 
-        <title>REPO</title>
+	       function copyShortUrl() {
+	 /* Get the text field */
+	 var copyText = document.getElementById("Field3");
 
-     <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
+	 /* Select the text field */
+	 copyText.select();
+	 copyText.setSelectionRange(0, 99999); /*For mobile devices*/
 
-  
-  <div>
-    <label class="desc" id="title1" for="Field1">Long URL</label>
-    <div>
-      <input id="urlinput" name="Field1" type="url" class="field text fn">
+	 /* Copy the text inside the text field */
+	 document.execCommand("copy");
 
-    </div>
-  </div>
-    
-    
+	 /* Alert the copied text */
+	 var tooltip = document.getElementById("myTooltip");
+	 tooltip.innerHTML = "Copied: " + copyText.value;
+	}
 
-  	<div>
-  		<button id="saveForm name=saveForm" onclick="shorturl()">Create</button>
- 
-    </div>
-
-
-  <div>
-  	      <hr>
-<hr>
-    <label class="desc" id="title3" for="Field3">
-      SHORT URL
-    </label>
-    <div>
-      <input style="background: #7bed9f" id="Field3" name="Field3" type="url" spellcheck="false" value=""> 
-      <br>
-      <div class="tooltip">
-<button onclick="copyShortUrl()">COPY URL
-  <span class="tooltiptext" id="myTooltip">COPY URL</span>
-
-  </button>
-</div>
-	  
-
-
-	   <script type="text/javascript">
-
-	   	function copyShortUrl() {
-  /* Get the text field */
-  var copyText = document.getElementById("Field3");
-
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-
-  /* Copy the text inside the text field */
-  document.execCommand("copy");
-
-  /* Alert the copied text */
-  var tooltip = document.getElementById("myTooltip");
-  tooltip.innerHTML = "Copied: " + copyText.value;
-}
-
-</script>
-   		
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src="main.js"></script>
-
-    </body>
+	</script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	</script> 
+	<script src="main.js">
+	</script>
+</body>
 </html>
