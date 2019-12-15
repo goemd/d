@@ -7,6 +7,10 @@
 body {
   padding: 20px 15%;
 }
+
+.start{
+  display: none;
+}
 form header {
   margin: 0 0 20px 0; 
 }
