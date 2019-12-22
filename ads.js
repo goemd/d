@@ -6,16 +6,15 @@ $('#contents').hide();
 
 });
 
-var idMan = 0; 
-$(document).ready(function(){
-  $("input").keydown(function(event){ 
-  	idMan = event.which;
-  	if(idMan == 73){
-  		$('#contents').show();
-  	}
-  	else{
-  		window.location.assign("https://www.tracemyip.org/")
-  	}
+var iDn = 31;
+let input = document.querySelector('#getInput');
 
-  });
-});
+input.onchange = handleChange;
+
+function handleChange(event) {
+  iDn = event.target.value;
+    if(iDn == 770)
+	{
+		$('#contents').show();
+	}
+}
