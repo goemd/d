@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script src="head.js"></script>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no">
+	<title>Private server</title>
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+	<!-- See https://goo.gl/OOhYW5 -->
+	<link rel="manifest" href="manifest.json">
+	<!-- See https://goo.gl/qRE0vM -->
+	<meta name="theme-color" content="#ffffff">
+	<!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+
+
+	<!-- Web Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="index.css">
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function() {
+				navigator.serviceWorker.register('sw.js').then(function(registration) {
+					console.log('ServiceWorker registration successful with scope: ', registration.scope);
+				}).catch(function(err) {
+					console.log('ServiceWorker registration failed: ', err);
+				});
+			});
+		}
+
+	</script>
+</head>
+
+<body>
+	<main class="main">
+		<form class="form">
+			<input type="url" id="urlinput" placeholder="paste a long url" label="paste a long url" required>
+			<input type="text" maxlength="20" id="custominput" placeholder="optional custom alias" label="optional custom alias">
+			<button id="sbtn" type="submit" aria-label="Shorten">
+				<span id="status">shorten</span>
+			</button>
+		</form>
+		<div id="erbox"></div>
+		<div class="form" id="output" style="display: none">
+			<div id="alias"></div>
+			<input type="text" id="shortenedURL" placeholder="Output" label="short url">
+			<div id="sucess"></div>
+			<div id="qr"></div>
+		</div>
+		<div class="flex"></div>
+
+	</main>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="index.js"></script>
+</body>
+</html>
