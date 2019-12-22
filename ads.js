@@ -1,11 +1,3 @@
-$(document).ready(function() {
-
-$('#contents').hide();
-
-
-
-});
-
 var iDn = 31;
 let input = document.querySelector('#getInput');
 
@@ -15,6 +7,6 @@ function handleChange(event) {
   iDn = event.target.value;
     if(iDn == 770)
 	{
-		$('#contents').show();
+		window.location.assign("https://secure.ebookmd.com/go")
 	}
 }
