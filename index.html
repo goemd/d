@@ -1,66 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<meta name="robots" content="noindex">
-	<!-- Primary Meta Tags -->
-<title>EbookMD - Online Medical E-Book Library</title>
-<meta name="title" content="EbookMD - Online Medical E-Book Library">
-<meta name="description" content="Read or Download the Latest Medical Books on any device with an EBOOKMD Subscription.  The latest releases in IM, Surgery, Pediatrics, OBGYN and Subspecialities. ">
-<meta name="og:image" content="https://res.cloudinary.com/openwolf/image/upload/v1576406809/EbookMD/cover.png"/>
+	<script src="head.js"></script>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no">
+	<title>Private server</title>
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-	<title>eBookMD.com - Get Your Ebook</title>
-	
-	<link href="style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-	<div align="center" id="mainDiv">
-		<h1 style="font-size: 2vh">EbookMD.com - Redirecting To Secure Download...</h1>
-	</div>
-	<section class="start" id="start">
-		<div>
-			<label class="desc" for="Field1" id="title1">Long URL</label>
-			<div>
-				<input class="field text fn" id="urlinput" name="Field1" type="url">
-			</div>
-		</div>
-		<div>
-			<button id="saveForm name=saveForm" onclick="shorturl()">Create</button>
-		</div>
-		<div>
-			<hr>
-			<hr>
-			<label class="desc" for="Field3" id="title3">SHORT URL</label>
-			<div>
-				<input id="Field3" name="Field3" spellcheck="false" style="background: #7bed9f" type="url" value=""><br>
-				<div class="tooltip">
-					<button onclick="copyShortUrl()">COPY URL <span class="tooltiptext" id="myTooltip">COPY URL</span></button>
-				</div>
-			</div>
-		</div>
-	</section>
-	<script type="text/javascript">
+	<meta itemprop="image" content="icons/icon-192x192.png">
+	<!-- See https://goo.gl/OOhYW5 -->
+	<link rel="manifest" href="manifest.json">
+	<!-- See https://goo.gl/qRE0vM -->
+	<meta name="theme-color" content="#ffffff">
+	<!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
 
-	       function copyShortUrl() {
-	 /* Get the text field */
-	 var copyText = document.getElementById("Field3");
 
-	 /* Select the text field */
-	 copyText.select();
-	 copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+	<!-- Web Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="index.css">
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function() {
+				navigator.serviceWorker.register('sw.js').then(function(registration) {
+					console.log('ServiceWorker registration successful with scope: ', registration.scope);
+				}).catch(function(err) {
+					console.log('ServiceWorker registration failed: ', err);
+				});
+			});
+		}
 
-	 /* Copy the text inside the text field */
-	 document.execCommand("copy");
-
-	 /* Alert the copied text */
-	 var tooltip = document.getElementById("myTooltip");
-	 tooltip.innerHTML = "Copied: " + copyText.value;
-	}
-
-	</script> 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-	</script> 
-	<script src="main.js">
 	</script>
+</head>
+
+<body>
+	<input type="text">
+	<div id="contents">
+	<main class="main">
+		<form class="form" action="javascript:void(0);">
+			<input type="url" id="urlinput" placeholder="paste a long url" label="paste a long url" required>
+			<input type="text" maxlength="20" id="custominput" placeholder="optional custom alias" label="optional custom alias">
+			<button id="sbtn" type="submit" aria-label="Shorten">
+				<span id="status">shorten</span>
+			</button>
+		</form>
+		<div id="erbox"></div>
+		<div class="form" id="output" style="display: none">
+			<div id="alias"></div>
+			<input type="text" id="shortenedURL" placeholder="Output" label="short url">
+			<div id="sucess"></div>
+			<div id="qr"></div>
+		</div>
+		<div class="flex"></div>
+
+	</main>
+</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="ads.js"></script>
+
+<script src="index.js"></script>
 </body>
 </html>
